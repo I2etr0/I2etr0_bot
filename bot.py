@@ -1,10 +1,8 @@
 import subprocess
 import os
-import time
 
 import telebot
 from telebot import types
-import string
 
 # import up
 from key import key
@@ -39,7 +37,7 @@ def menu(message):
         doc = os.system('docker ps >> docker.txt && cat docker.txt')
         bot.send_message(message.chat.id, 'Контейнеры:'.format(message.from_user) + str(doc))
 
-    elif message.text in hello or message.text == 'Uptime':
+    elif message.text == 'Uptime':
         upt = subprocess.check_output(["uptime"]).decode('utf-8')
         bot.send_message(message.chat.id, 'Вот uptime сервера:\n'.format(message.from_user) + upt)
 
